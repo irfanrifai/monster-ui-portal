@@ -6,11 +6,11 @@ define(function(require){
 	var app = {
 		requests: {
 			'voip.callLogs.listCdrs': {
-				url: 'accounts/{accountId}/cdrs?created_from={fromDate}&created_to={toDate}',
+				url: 'accounts/{accountId}/users/{user_id}/cdrs?created_from={fromDate}&created_to={toDate}',
 				verb: 'GET'
 			},
 			'voip.callLogs.getCdrsCSV': {
-				url: 'accounts/{accountId}/cdrs?created_from={fromDate}&created_to={toDate}',
+				url: 'accounts/{accountId}/users/{user_id}/cdrs?created_from={fromDate}&created_to={toDate}',
 				verb: 'GET',
 				headers: {
 					'Accept': 'application/octet-stream'
@@ -304,7 +304,7 @@ define(function(require){
 						duration: durationMin + ":" + durationSec,
 						hangupCause: cdr.hangup_cause,
 						isOutboundCall: ("authorizing_id" in cdr),
-						mailtoLink: "mailto:support@2600hz.com"
+						mailtoLink: "mailto:support@vccs.ca"
 								  + "?subject=Call Report: " + cdr.call_id
 								  + "&body=Please describe the details of the issue:%0D%0A%0D%0A"
 								  + "%0D%0A____________________________________________________________%0D%0A"
